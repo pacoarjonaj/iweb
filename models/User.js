@@ -18,6 +18,10 @@ const userSchema = new Schema({
 		required : [true, 'Username is required'],
 		unique: true,
 		trim: true
+	},
+	age: {
+		type: Number,
+		required : [true, 'Age is required'],
 	}
 }, {
 	timestamps: true,	// mongoose guarda cuando se crea o se actualiza algun usuario, createdAt/updateAt

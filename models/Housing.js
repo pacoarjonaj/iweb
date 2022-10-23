@@ -16,10 +16,13 @@ const housingSchema = new Schema({
 		maxLength : [100, 'Description must be less than 100 characters']
 	},
 	price: {
-		type: String,
+		type: Number,
 		required : [true, 'Price is required']
+	},
+	owner: {
+		type: Schema.Types.ObjectId, ref: 'User',
+		required : [true, 'Owner is required']
 	}
-	
 }, {
 	timestamps: true,	// mongoose guarda cuando se crea o se actualiza algun usuario, createdAt/updateAt
 	versionKey: false
