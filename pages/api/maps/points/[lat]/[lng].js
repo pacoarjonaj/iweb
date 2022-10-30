@@ -19,7 +19,7 @@ export default async function handler(req, res) {
                 .elevation({
                   params: {
                     locations: [{ lat: lat, lng: lng }],
-                    key: "AIzaSyBhr3InTH8ovJezY3Ppwka6KWzGVLHh4Vg",
+                    key: process.env.GOOGLE_API_KEY,
                   },
                   timeout: 1000, // milliseconds
                 })
