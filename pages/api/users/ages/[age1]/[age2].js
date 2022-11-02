@@ -10,6 +10,9 @@ export default async (req, res) => {
 	} = req;
 
 	switch(method) {
+
+		// http://localhost:3000/api/users/ages/[edad1]/[edad2]
+		
 		case 'GET':
 			try{
 				const user = await User.find({age : { $gte :  age1, $lte : age2}})

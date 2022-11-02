@@ -10,6 +10,9 @@ export default async (req, res) => {
 	} = req;
 
 	switch(method) {
+
+		// http://localhost:3000/api/users/username/[username]
+		
 		case 'GET':
 			try{
 				const user = await User.find({username: new RegExp(username, 'i')})

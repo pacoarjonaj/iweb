@@ -11,6 +11,9 @@ export default async (req, res) => {
 	} = req;
 
 	switch(method){
+
+		// http://localhost:3000/api/bookings/user/[username]
+		
 		case 'GET':
 			try{
                 const user = await User.find({username: new RegExp(booker, 'i')})

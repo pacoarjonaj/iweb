@@ -1,5 +1,7 @@
 import Housing from "../../../models/Housing"
 
+// http://localhost:3000/api/housings
+
 export async function getHousings(req,res){
 	try{
 		const housings = await Housing.find()

@@ -10,6 +10,9 @@ export default async (req, res) => {
 	} = req;
 
 	switch(method){
+
+		// http://localhost:3000/api/housings/prices/[precio1]/[precio2]
+		
 		case 'GET':
 			try{
 				const housing = await Housing.find({price : { $gte :  price1, $lte : price2}})

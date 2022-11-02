@@ -11,6 +11,9 @@ export default async (req, res) => {
 	} = req;
 
 	switch(method){
+
+		// http://localhost:3000/api/bookings/[id]
+		
 		case 'GET':
 			try{
 				const booking = await Booking.findById(id)

@@ -10,6 +10,9 @@ export default async (req, res) => {
 	} = req;
 
 	switch(method){
+
+		// http://localhost:3000/api/housings/address/[direccion]
+		
 		case 'GET':
 			try{
 				const housing = await Housing.find({address: new RegExp(address, 'i')})

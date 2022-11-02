@@ -1,5 +1,7 @@
 import Booking from "../../../models/Booking"
 
+// http://localhost:3000/api/bookings
+
 export async function getBookings(req, res){
 	try{
 		const bookings = await Booking.find()

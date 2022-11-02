@@ -1,5 +1,6 @@
 import User from "../../../models/User"
 
+// http://localhost:3000/api/users
 
 export async function getUsers(req,res){
 	try{

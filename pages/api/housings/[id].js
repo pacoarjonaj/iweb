@@ -11,6 +11,9 @@ export default async (req, res) => {
 	} = req;
 
 	switch(method){
+
+		// http://localhost:3000/api/housings/[id]
+		
 		case 'GET':
 			try{
 				const housing = await Housing.findById(id)

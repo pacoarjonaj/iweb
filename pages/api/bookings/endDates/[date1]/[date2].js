@@ -10,6 +10,9 @@ export default async (req, res) => {
 	} = req;
 
 	switch(method){
+
+		// http://localhost:3000/api/bookings/endDates/[fecha1]/[fecha2]
+
 		case 'GET':
 			try{
 				const booking = await Booking.find({endDate : { $gte :  date1, $lte : date2}})
