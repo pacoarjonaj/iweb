@@ -24,7 +24,7 @@ const housingSchema = new Schema({
 		required : [true, 'Owner is required']
 	}
 }, {
-	timestamps: true,	// mongoose guarda cuando se crea o se actualiza algun usuario, createdAt/updateAt
+	timestamps: false,
 	versionKey: false
 })
 
