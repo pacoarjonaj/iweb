@@ -9,6 +9,10 @@ const bookingSchema = new Schema({
 		type : Date,
 		required: [true, 'End date is required']
 	},
+	guests: {
+		type : String,
+		required: [true, 'Guests are required']
+	},
 	user: {
 		type: Schema.Types.ObjectId, ref: 'User',
 		required : [true, 'User is required']
@@ -18,7 +22,7 @@ const bookingSchema = new Schema({
 		required : [true, 'Housing is required']
 	}
 }, {
-	timestamps: false,	// creo que es mejor quitar los createdAt/updateAt a no ser que los necesitemos, puede confundir un poco con el resto de atributos
+	timestamps: false,	
 	versionKey: false
 })
 

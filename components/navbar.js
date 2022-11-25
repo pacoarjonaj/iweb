@@ -1,4 +1,5 @@
-import { Navbar, Button } from "flowbite-react";
+import { Navbar, Button } from "flowbite-react"
+import Link from "next/link"
 
 const NavbarItem = () => {
 
@@ -20,21 +21,25 @@ const NavbarItem = () => {
 			</span>
 		</Navbar.Brand>
 
-		<div className="flex md:order-2">
-			<Button href="/new-user">
-				Registrarse
-			</Button>
-			<Navbar.Toggle />
+		<Navbar.Collapse>
+		    <Link href='/users'><a className="">Usuarios</a></Link> 
+			<Link href='/housings'>Alojamientos</Link> 
+			<Link href=''>Reservas</Link> 
+		</Navbar.Collapse>
+
+			
+		<div className="flex-row flex pr-2">
+			<div className="px-2">
+				<Link href='new-user'><Button>Crear Usuario</Button></Link>
+				<Navbar.Toggle />
+			</div>
+
+			<div className="px-2">
+				<Link href='new-housing'><Button>Crear Alojamiento</Button></Link>
+				<Navbar.Toggle />
+			</div>
 		</div>
 
-		<Navbar.Collapse>
-			<Navbar.Link href="/users"> Usuarios </Navbar.Link>
-
-			<Navbar.Link href="/housings"> Viviendas </Navbar.Link>
-
-			<Navbar.Link href="/bookings"> Reservas </Navbar.Link>
-
-		</Navbar.Collapse>
 
 	</Navbar>
 	)

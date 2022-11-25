@@ -7,16 +7,20 @@ const housingSchema = new Schema({
 		unique: true,
 		trim: true
 	},
+	description: {
+		type : String,
+		required: [true, 'Description is required'],
+	},
+	location: {
+		type: String,
+		required : [true, 'Location is required']
+	},
 	address: {
 		type: String,
 		required : [true, 'Address is required']
 	},
-	description: {
-		type : String,
-		maxLength : [100, 'Description must be less than 100 characters']
-	},
 	price: {
-		type: Number,
+		type: String,
 		required : [true, 'Price is required']
 	},
 	owner: {

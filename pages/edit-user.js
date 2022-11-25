@@ -1,7 +1,7 @@
 import NavbarItem from "../components/navbar"
 import { useState } from "react"
 import { useRouter } from "next/router"
-import { Button } from "flowbite-react"
+import { Button, TextInput } from "flowbite-react"
 
 
 const EditUser = ({
@@ -34,7 +34,7 @@ const EditUser = ({
 				},
 				method: 'PUT'
 			}).then(response => {
-				router.push(`/users`)
+				router.push(`/user-profile?id=${user._id}`)
 			})
 	}
 
@@ -51,9 +51,9 @@ const EditUser = ({
 						<div>
 							<label className="text-gray-800"htmlFor="name"> Nombre </label>
 						</div>
-						<input className="rounded-lg border border-gray-600 focus:border-gray-600" type="text" id="name" 
+						<TextInput id="name" 
 							name="name" 
-							placeholder={nameValue}
+							value={nameValue}
 							onChange={ (event) => setName(event.target.value)}
 						/>
 					</div>
@@ -61,9 +61,9 @@ const EditUser = ({
 						<div>
 							<label className="text-gray-800"htmlFor="surname"> Apellidos </label>
 						</div>
-						<input className="rounded-lg border border-gray-600 focus:border-gray-600" type="text" id="surname" 
+						<TextInput id="surname" 
 							name="surname" 
-							placeholder={surnameValue}
+							value={surnameValue}
 							onChange={ (event) => setSurname(event.target.value)}
 						/>
 					</div>
@@ -71,18 +71,18 @@ const EditUser = ({
 						<div>
 							<label className="text-gray-800"htmlFor="email"> Email </label>
 						</div>
-						<input className="rounded-lg border border-gray-600 focus:border-gray-600" type="text" id="email" 
+						<TextInput id="email" 
 							name="email" 
-							placeholder={emailValue}
+							value={emailValue}
 							onChange={ (event) => setEmail(event.target.value)}/>
 					</div>
 					<div className="pb-2">
 						<div>
 							<label className="text-gray-800"htmlFor="username"> Nombre de usuario </label>
 						</div>
-						<input className="rounded-lg border border-gray-600 focus:border-gray-600" type="text" id="username" 
+						<TextInput addon="@" id="username" 
 							name="nusernameame" 
-							placeholder={usernameValue}
+							value={usernameValue}
 							onChange={ (event) => setUsername(event.target.value)}
 						/>
 					</div>
@@ -90,9 +90,9 @@ const EditUser = ({
 						<div>
 							<label className="text-gray-800"htmlFor="age"> Edad </label>
 						</div>
-						<input className="rounded-lg border border-gray-600 focus:border-gray-600" type="text" id="age" 
+						<TextInput id="age" 
 							name="age" 
-							placeholder={ageValue}
+							value={ageValue}
 							onChange={ (event) => setAge(event.target.value)}
 						/>
 					</div>

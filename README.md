@@ -32,3 +32,74 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## Install tailwindcss
+1.
+npm install -D tailwindcss
+npx tailwindcss init
+
+2.
+Add the paths to all of your template files in your tailwind.config.js file:
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+3.
+Add the @tailwind directives for each of Tailwind’s layers to your main CSS file:
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+4.
+Run your build process with npm run dev.
+
+## Install Flowbite React Components (with tailwind)
+1.
+npm install flowbite flowbite-react --save
+
+2.
+Require Flowbite as a plugin inside the tailwind.config.js file:
+
+/**
+ * @type {import('@types/tailwindcss/tailwind-config').TailwindConfig}
+ */
+module.exports = {
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./public/**/*.html",
+  ],
+  plugins: [
+    require("flowbite/plugin")
+  ],
+  theme: {},
+};
+
+3.
+Add the source code in the template paths to make sure that dynamic classes from the library will be compiled:
+
+/**
+ * @type {import('@types/tailwindcss/tailwind-config').TailwindConfig}
+ */
+module.exports = {
+  content: [
+    "./node_modules/flowbite-react/**/*.js",
+    "./pages/**/*.{ts,tsx}",
+    "./public/**/*.html",
+  ],
+  plugins: [
+    require("flowbite/plugin")
+  ],
+  theme: {},
+};
+
+## Install google-maps-api
+1.
+npm i google-maps-react
