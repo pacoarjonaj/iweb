@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import { useState } from "react"
 import NavbarItem from "../components/navbar"
-import { Button,TextInput } from "flowbite-react"
+import { Button,TextInput, Textarea } from "flowbite-react"
 
 const EditHousing = ({
 	housing
@@ -11,9 +11,12 @@ const EditHousing = ({
 
 	const [titleValue, setTitle] = useState(housing.title)
 	const [descriptionValue, setDescription] = useState(housing.description ? (housing.description) : null)
-	const [locationValue, setLocation] = useState(housing.location)
 	const [addressValue, setAddress] = useState(housing.address)
 	const [priceValue, setPrice] = useState(housing.price)
+	const [ownerValue, setOwner] = useState(housing.owner)
+	const [latValue, setLat] = useState(housing.lat)
+	const [lngValue, setLng] = useState(housing.lng)
+	const [public_idValue, setPublic_id] = useState(housing.public_id)
 
 	const handleSubmit = async event => {
 		event.preventDefault()
@@ -23,9 +26,12 @@ const EditHousing = ({
 				body: JSON.stringify({
 					title: event.target.title.value,
 					description: event.target.description.value,
-					location: event.target.location.value,
 					address: event.target.address.value,
-					price: event.target.price.value
+					price: event.target.price.value,
+					owner: event.target.owner.value,
+					lat: event.target.lat.value,
+					lng: event.target.lng.value,
+					public_id: event.target.public_id.value
 				}),
 				headers: {
 					'Content-Type': 'application/json'
@@ -41,13 +47,13 @@ const EditHousing = ({
 		<>
 			<NavbarItem />
 
-			<div className="flex-col flex w-full h-screen space-y-12 my-24 items-center" >
+			<div className="flex-col flex w-full h-screen space-y-4 mt-10 items-center" >
 
-				<h1 className="text-2xl font-normal ">Crear Nuevo Alojamiento</h1>
+				<h1 className="text-2xl font-normal ">Editar alojamiento</h1>
 				<form  onSubmit={handleSubmit}>
-					<div className="pb-2">
+					<div className="pb-2 w-96">
 						<div>
-							<label className="text-gray-800"htmlFor="title"> Titulo </label>
+							<label className="text-gray-800"htmlFor="title"> Título </label>
 						</div>
 						<TextInput id="title" 
 						name="title" 
@@ -59,20 +65,12 @@ const EditHousing = ({
 						<div>
 							<label className="text-gray-800"htmlFor="description"> Descripcion </label>
 						</div>
-						<TextInput id="description" sizing="lg" 
+						<Textarea id="description" sizing="lg" 
 						name="description" 
+						type="textarea" rows={4}
 						value={descriptionValue}
+						className="text-sm" 
 						onChange={ (event) => setDescription(event.target.value)}
-						/>
-					</div>
-					<div className="pb-2">
-						<div>
-							<label className="text-gray-800"htmlFor="location"> Localidad </label>
-						</div>
-						<TextInput id="location" 
-						name="location" 
-						value={locationValue}
-						onChange={ (event) => setLocation(event.target.value)}
 						/>
 					</div>
 					<div className="pb-2">
@@ -91,13 +89,52 @@ const EditHousing = ({
 						</div>
 						<TextInput id="price" 
 						name="price"
-
 						value={priceValue}
 						onChange={ (event) => setPrice(event.target.value)}
 						 />
 					</div>
+					<div className="pb-2">
+						<div>
+							<label className="text-gray-800"htmlFor="owner"> Identificador de propietario</label>
+						</div>
+						<TextInput id="owner" 
+						name="owner"
+						value={ownerValue}
+						onChange={ (event) => setOwner(event.target.value)}
+						 />
+					</div>
+					<div className="pb-2">
+						<div>
+							<label className="text-gray-800"htmlFor="lat"> Latitud</label>
+						</div>
+						<TextInput id="lat" 
+						name="lat"
+						value={latValue}
+						onChange={ (event) => setLat(event.target.value)}
+						 />
+					</div>
+					<div className="pb-2">
+						<div>
+							<label className="text-gray-800"htmlFor="lng"> Longitud</label>
+						</div>
+						<TextInput id="lng" 
+						name="lng"
+						value={lngValue}
+						onChange={ (event) => setLng(event.target.value)}
+						 />
+					</div>
+					<div className="pb-4">
+						<div>
+							<label className="text-gray-800"htmlFor="public_id"> Identificador de foto</label>
+						</div>
+						<TextInput id="public_id" 
+						name="public_id"
+						value={public_idValue}
+						onChange={ (event) => setPublic_id(event.target.value)}
+						 />
+					</div>
 					<div className="flex flex-col items-center">
-						<Button type="submit" className="rounded-full border-2 flex flex-row justify-center cursor-pointer text-white bg-blue-500 hover:bg-blue-600">
+						<Button type="submit" >
 							Modificar
 						</Button>
 					</div>

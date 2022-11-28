@@ -22,6 +22,9 @@ const userSchema = new Schema({
 	age: {
 		type: Number,
 		required : [true, 'Age is required'],
+	},
+	public_id: {
+		type: String
 	}
 }, {
 	timestamps: false,	// mongoose guarda cuando se crea o se actualiza algun usuario, createdAt/updateAt

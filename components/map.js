@@ -1,4 +1,4 @@
-import { Map, GoogleApiWrapper } from "google-maps-react"
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react"
 
 const MapItem = ({
 	google,
@@ -15,8 +15,10 @@ const MapItem = ({
 				initialCenter = {center}
 				containerStyle = {containerStyle}
 			>
-
+				<Marker position = {center}/>
 			</Map>
+
+			
 		</div>
 	)
 }

@@ -3,20 +3,15 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import { Button, TextInput } from "flowbite-react"
 
-
-const EditUser = ({
-	user
-}) => {
-
+const EditUser = ({user}) => {
 	const router = useRouter()
-
 	const [nameValue, setName] = useState(user.name)
 	const [surnameValue, setSurname] = useState(user.surname)
 	const [emailValue, setEmail] = useState(user.email)
 	const [usernameValue, setUsername] = useState(user.username)
 	const [ageValue, setAge] = useState(user.age)
+	const [public_idValue, setPublic_id] = useState(user.public_id)
 
-	
 	const handleSubmit = async event => {
 		event.preventDefault()
 
@@ -27,27 +22,26 @@ const EditUser = ({
 					surname: event.target.surname.value,
 					email: event.target.email.value,
 					username: event.target.username.value,
-					age: event.target.age.value
+					age: event.target.age.value,
+					public_id: event.target.public_id.value
 				}),
 				headers: {
 					'Content-Type': 'application/json'
 				},
 				method: 'PUT'
 			}).then(response => {
-				router.push(`/user-profile?id=${user._id}`)
+				router.push(`/user?id=${user._id}`)
 			})
 	}
 
 	return (
 		<>
-
 			<NavbarItem />
+			<div className="flex-col flex w-full h-screen space-y-4 mt-10 items-center" >
 
-			<div className="flex-col flex w-full h-screen space-y-12 my-24 items-center" >
-
-				<h1 className="text-2xl font-normal ">Editar Datos de Usuario</h1>
+				<h1 className="text-2xl font-normal ">Editar usuario</h1>
 				<form onSubmit={handleSubmit}>
-					<div className="pb-2">
+					<div className="pb-2 w-96">
 						<div>
 							<label className="text-gray-800"htmlFor="name"> Nombre </label>
 						</div>
@@ -96,8 +90,18 @@ const EditUser = ({
 							onChange={ (event) => setAge(event.target.value)}
 						/>
 					</div>
+					<div className="pb-4">
+						<div>
+							<label className="text-gray-800"htmlFor="public_id"> Identificador de foto </label>
+						</div>
+						<TextInput id="public_id" 
+							name="public_id" 
+							value={public_idValue}
+							onChange={ (event) => setPublic_id(event.target.value)}
+						/>
+					</div>
 					<div className="flex-col flex items-center">
-						<Button type="submit" className="rounded-full border-2 flex flex-row justify-center cursor-pointer text-white bg-blue-500 hover:bg-blue-600">
+						<Button type="submit">
 							Modificar
 						</Button>
 					</div>
